@@ -1,0 +1,33 @@
+### Exercice 1 : Commencer notre ascension
+
+Tout au long de ce cours, nous construirons progressivement un ensemble d'outils permettant
+d'examiner la proportion de prix Nobel décernés à des immigrés.
+Dans cet exercice, vous répondrez à une question limitée mais connexe à l’aide des outils que
+nous avons présentés jusqu’à présent.
+
+Nous avons vu dans son document de lauréat que le pays de naissance de Walter Kohn était « l'Autriche » et que le pays d'affiliation de son prix était les « États-Unis ». Comptez le nombre de lauréats nés en Autriche avec un pays d'affiliation au prix autre que l' Autriche.
+
+Instructions
+
+1) Enregistrez un filtre criteria pour les lauréats nés en ( bornCountry) "Autriche" avec un prizes.affiliations.country.
+2) Enregistrez votre nombre de lauréats sous count.
+
+### Exercice 2 : Notre approximation 'née' et un lauréat spécial
+Nous avons vu précédemment que la collection des lauréats encode de manière particulière l’incertitude sur la date de naissance. Lorsqu'une date de naissance est inconnue, le "born"champ prend la valeur "0000-00-00". Ainsi,
+
+            db.laureates.count_documents({"born": "0000-00-00"})
+
+compte le nombre de ces lauréats. Ou est-ce que c'est le cas ?
+
+Nous avons également constaté que le nombre total de prix décernés aux lauréats est supérieur au nombre de lauréats – certains ont reçu plus d'un prix. Il y en a un en particulier avec trois prix énormes, et ce lauréat détient des informations clés pour nous aider dans notre quête visant à déterminer la proportion de prix décernés aux immigrants.
+
+Consignes
+Utilisez un document filtre ( criteria) pour compter les documents qui n'ont pas de "born"champ.
+Utilisez un filtre de document ( criteria) pour rechercher un document pour un lauréat avec au moins trois éléments dans son "prizes"tableau. En d’autres termes, existe-t-il un troisième élément pour le tableau ? N'oubliez pas l'indexation base zéro !
+
+### Exercice 2  : Jamais de là, mais parfois enfin là
+Certains pays de décès enregistrés ( "diedCountry") n'apparaissent pas comme pays de naissance ( "bornCountry") pour les lauréats. L’un de ces pays est « l’Allemagne de l’Est ».
+
+Instructions
+Renvoie un ensemble de tous les pays tels que countries.
+

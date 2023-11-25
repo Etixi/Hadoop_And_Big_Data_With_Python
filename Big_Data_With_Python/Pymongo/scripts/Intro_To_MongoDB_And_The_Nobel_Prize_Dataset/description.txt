@@ -1,0 +1,38 @@
+##### Exercice 1 : Répertorier les bases de données et les collections
+
+Notre objet MongoClient n'est pas réellement un dictionnaire,
+nous ne pouvons donc pas appeler keys()
+pour lister les noms des bases de données accessibles.
+Il en va de même pour répertorier les collections d’une base de données.
+Au lieu de cela, nous pouvons répertorier les noms de bases de données en
+appelant une instance client list_database_names()
+, et nous pouvons répertorier les noms de collections en appelant une instance
+de base de données list_collection_names().
+
+Instructions
+
+Enregistrez une liste, appelée db_names, des noms des bases de données gérées par nos connectés client.
+De même, enregistrez une liste, appelée nobel_coll_names, des noms des collections gérées par la base de données « nobel ».
+
+
+
+### Exercice 2 : Liste des champs d'un document
+La méthode.find_one() d'une collection peut être utilisée pour récupérer un seul document.
+Cette méthode accepte un argument filter facultatif qui spécifie le modèle auquel le document doit correspondre.
+Vous en apprendrez plus sur les filtres dans la leçon suivante, mais pour l'instant,
+vous pouvez spécifier aucun filtre ou un filtre de document vide ( {}),
+auquel cas MongoDB renverra le document qui se trouve en premier dans l'ordre interne de la collection.
+
+Cette méthode est utile lorsque vous souhaitez connaître la structure des documents de la collection.
+
+En Python, le document renvoyé prend la forme d'un dictionnaire :
+
+    sample_doc = {'id' : 12345, 'name':'Donny Winston', 'instructor': True}
+Les clés du dictionnaire sont les "champs" (au niveau racine) du document, par exemple 'id', 'name', 'instructor'.
+
+Consignes
+1. Connectez-vous à la base de données Nobel.
+2. Récupérez un document de chacune des collections de prix et de lauréats, puis jetez un œil au résultat dans la console pour voir le format et le type des documents en Python.
+3. Puisque prize et laureate sont des dictionnaires, vous pouvez utiliser la méthode .keys()
+pour renvoyer les clés (c'est-à-dire les noms de champs). Mais il est souvent plus pratique de travailler avec des listes de champs.
+Utilisez le constructeur list() pour enregistrer une liste des champs présents dans les documents prize et laureate.

@@ -1,0 +1,9 @@
+### Exercice 1 : Triple jeux (principalement) partout
+Les prix peuvent être partagés, même par plus de deux lauréats. En fait, toutes les catégories de prix, sauf une – la littérature – ont été récompensées par trois lauréats ou plus.
+
+Instructions
+
+Enregistrez un document filtre criteria qui, lorsqu'il est transmis à db.prizes.distinct, renvoie toutes les catégories de prix partagées par trois lauréats ou plus. Autrement dit, "laureates.2"doit exister pour de tels documents.
+Enregistrez ces catégories de prix sous un Python set appelé triple_play_categories.
+Confirmez par une affirmation que la « littérature » est la seule catégorie de prix sans prix partagé par trois lauréats ou plus.
+

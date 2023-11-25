@@ -1,0 +1,34 @@
+### Exercice 1 : approximation "née"
+Le "born"champ d'un document de collection de lauréat enregistre la date de naissance de ce lauréat.
+"born"les valeurs sont au format « AAAA-MM-JJ », également connu sous le nom de format ISO 8601.
+Un exemple de valeur est "1937-02-01", pour le 1er février 1937.
+Ce format est pratique pour la comparaison lexicographique. Par exemple, la requête
+
+db.laureates.count_documents({"born": {"$lt": "1900"}})
+renvoie le nombre de lauréats dont les dates de naissance enregistrées sont antérieures à l'année 1900 ( "$lt" pour " inférieur à ") .
+En utilisant le format de requête ci-dessus, quel est le nombre de lauréats nés avant 1800 ? Et avant 1700 ?
+
+### Exercice 2 : Composer des filtres
+Il est souvent utile de créer progressivement un document filtre afin de voir l'effet de l'ajout de
+contraintes une par une. Dans cet exercice, nous compterons le nombre de documents lauréats répondant
+ à certains critères, et nous ajouterons progressivement des critères.
+
+Consignes
+Créez un filtre criteria pour compter les lauréats décédés ("diedCountry") aux USA ("USA").
+Enregistrez le nombre de documents sous count.
+Créez un filtre pour compter les lauréats décédés aux États-Unis mais nés ("bornCountry") en Allemagne.
+Les comtes lauréats décédés aux États-Unis, nés en Allemagne et dont le prénom ("firstname") était "Albert".
+
+
+### Exercice3: Nous avons des options
+Parfois, nous souhaitons trouver des documents dans lesquels la valeur d'un champ correspond à
+l'un des ensembles d'options. Nous avons vu que l’ $inopérateur de requête peut être utilisé à
+cette fin. Par exemple, combien de lauréats sont nés au « Canada », au « Mexique » ou aux « États-Unis » ?
+
+Si nous souhaitons accepter toutes les options sauf une comme valeur pour un champ, nous pouvons utiliser
+l' opérateur $ne( not equal ). Par exemple, combien de lauréats sont morts aux États-Unis mais ne
+sont pas nés aux États-Unis ?
+
+Consignes
+1) Combien de lauréats sont nés aux « États-Unis », au « Canada » ou au « Mexique » ? Enregistrez un filtre sous criteriaet votre compte sous count.
+2) Combien de lauréats sont morts aux USA mais n’y sont pas nés ? Enregistrez votre filtre sous criteriaet votre compte sous count.

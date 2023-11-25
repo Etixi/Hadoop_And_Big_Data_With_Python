@@ -1,0 +1,16 @@
+### Exercice 1 : Validation des données catégorielles
+1) Quelle expression affirme que les catégories distinctes du prix Nobel cataloguées par la collection des « prix » sont les mêmes que celles cataloguées par les « lauréats » ?
+N'oubliez pas d'explorer des exemples de documents dans la console via par exemple db.prizes.find_one() et db.laureates.find_one().
+
+### Exercice 2 : Jamais de là, mais parfois enfin là
+Certains pays de décès enregistrés ( "diedCountry") n'apparaissent pas comme pays de naissance ( "bornCountry") pour les lauréats. L’un de ces pays est « l’Allemagne de l’Est ».
+
+Instructions
+Renvoie un ensemble de tous les pays tels que countries.
+
+### Exercice 3 : Pays d'affiliation
+Nous avons vu dans le dernier exercice que les pays peuvent être associés à un lauréat comme pays de naissance et comme pays de décès. Pour chaque prix reçu par un lauréat, il peut également être affilié à une institution de l'époque située dans un pays.
+
+Instructions
+1) Déterminer le nombre de pays distincts enregistrés dans le cadre d'une affiliation aux prix des lauréats. Enregistrez-le sous count.
+

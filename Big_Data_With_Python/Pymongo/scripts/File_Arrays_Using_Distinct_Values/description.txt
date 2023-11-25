@@ -1,0 +1,24 @@
+### Exercice 1 : Partage en physique après la Seconde Guerre mondiale
+Quel est le rapport approximatif entre le nombre de lauréats ayant remporté un {"share": "1"} prix non partagé
+en physique après la Seconde Guerre mondiale ( {"year": {"$gte": "1945"}}) et le nombre de lauréats ayant remporté
+un prix partagé en physique après la Seconde Guerre mondiale ?
+
+Pour référence, le code ci-dessous détermine le nombre de lauréats ayant remporté un prix partagé en physique avant 1945.
+
+
+### Exercice 2 : Pendant ce temps, dans d'autres catégories...
+Nous avons appris lors du dernier exercice qu'il y a eu beaucoup plus de partage des prix de physique depuis la Seconde Guerre mondiale : le rapport entre le nombre de lauréats de prix non partagés en physique en 1945 ou après et le nombre de lauréats de prix partagés est d'environ 0,13. Quel est ce ratio pour les catégories de prix autres que la physique, la chimie et la médecine ?
+
+Instructions
+Enregistrez un filtre $elemMatch unshared pour compter les lauréats avec des prix non partagés dans des catégories autres que (« pas dans ») ["physics", "chemistry", "medicine"] en 1945 ou après.
+Enregistrez un filtre $elemMatch shared pour compter les lauréats avec des prix partagés (c'est-à-dire, « part » n'est pas « 1 ») dans des catégories autres qu'en ["physics", "chemistry", "medicine"] 1945 ou après.
+
+
+### Exercice 3 : Organisations et prix au fil du temps
+Combien d’organisations ont remporté des prix avant 1945 par rapport à 1945 ou après ?
+
+Instructions
+
+Vous n'aurez pas $elemMatch du tout besoin de l'opérateur pour cet exercice.
+Enregistrez un filtre before pour compter les lauréats de l'organisation ayant remporté des prix avant 1945. Rappelez-vous que le statut de l'organisation est codé avec le "gender"champ et que la notation par points est nécessaire pour accéder au "year"champ d'un lauréat dans son "prizes"tableau.
+Enregistrez un filtre in_or_after pour compter les lauréats des organisations ayant remporté des prix en 1945 ou après.
