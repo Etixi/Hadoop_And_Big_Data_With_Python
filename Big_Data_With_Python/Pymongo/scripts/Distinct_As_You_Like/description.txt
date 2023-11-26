@@ -1,0 +1,28 @@
+### Exercice 1 : Glenn, George et d'autres membres de l'équipe britannique
+Il y a deux lauréats avec Berkeley, en Californie, comme ville d'affiliation au prix, qui portent les initiales GS - Glenn Seaborg et George Smoot. Combien de lauréats au total ont un prénom commençant par « G » et un nom commençant par « S » ?
+
+Évaluer l'expression
+
+1) db.laureates.count_documents({"firstname": Regex(____), "surname": Regex(____)})
+dans la console, en remplissant les espaces de manière appropriée.
+
+
+
+### Exercice 2 : L'Allemagne, hier et aujourd'hui
+Tout comme nous l'avons vu avec la Pologne, il y a des lauréats qui sont nés quelque part en Allemagne à l'époque mais qui ne l'est plus aujourd'hui, et d'autres qui sont nés quelque part qui n'était pas en Allemagne à l'époque mais qui l'est aujourd'hui.
+
+Consignes
+
+1) Utilisez un objet d'expression régulière pour filtrer les lauréats avec « Allemagne » dans leur valeur « bornCountry ».
+2) Utilisez un objet d'expression régulière pour filtrer les lauréats avec une valeur « bornCountry » commençant par « Germany ».
+3) Utilisez un objet d'expression régulière pour filtrer les lauréats nés dans ce qui était à l'époque l'Allemagne mais qui est maintenant un autre pays.
+4) Utilisez un objet d'expression régulière pour filtrer les lauréats nés dans ce qui est aujourd'hui l'Allemagne mais qui était à l'époque un autre pays.
+
+
+### Exercice 3 : Le précieux transistor
+Trois personnes se sont partagé le prix Nobel "pour leurs recherches sur les semi-conducteurs et leur découverte de l'effet transistor". Nous pouvons filtrer sur « transistor » en tant que sous-chaîne de la valeur du champ « prix.motivation » d'un lauréat pour trouver ces lauréats.
+
+Instructions
+
+Enregistrez un filtre criteria qui recherche les lauréats avec prizes.motivationdes valeurs contenant « transistor » comme sous-chaîne. La sous-chaîne peut apparaître n’importe où dans la valeur, aucun caractère d’ancrage n’est donc nécessaire.
+Enregistrez dans first et last les noms de champs correspondant au prénom et au nom (ie « nom ») d'un lauréat afin que nous puissions imprimer les noms de ces lauréats.

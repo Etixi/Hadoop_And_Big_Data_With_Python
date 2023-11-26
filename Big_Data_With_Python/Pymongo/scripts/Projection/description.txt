@@ -1,0 +1,50 @@
+### Exercice 1 : Actions du Prix 1903 de Physique
+Vous souhaitez examiner les lauréats du prix de physique de 1903 et comment ils se sont partagé le prix. Voici une requête sans projection :
+
+db.laureates.find_one({"prizes": {"$elemMatch": {"category": "physics", "year": "1903"}}})
+Quelle(s) projection(s) récupéreront UNIQUEMENT les noms complets des lauréats et les informations sur la répartition des prix ? Je vous encourage à expérimenter la console et à vous refamiliariser avec la structure des documents de collection des lauréats.
+
+### Exercice 2 : Rassemblement de l'équipage GS
+Au chapitre 2, vous avez utilisé un objet expression régulière Regexpour rechercher des valeurs qui suivent un modèle. Nous pouvons également utiliser l’ opérateur d’expression régulière $regexdans le même but. Par exemple, la requête suivante :
+
+{ "name": {"$regex": "^Py"}}
+récupérera les documents dont le champ 'name' commence par "Py". Ici, le symbole caret ^signifie « commence par ».
+
+Dans cet exercice, vous utiliserez les expressions régulières, la projection et la compréhension de liste pour collecter les noms complets des lauréats dont les initiales sont « GS ».
+
+Consignes
+1) Tout d’abord, utilisez des expressions régulières pour récupérer les documents des lauréats dont le "firstname"nom commence par "G" et dont le "surname" nom commence par "S".
+2) À l'étape précédente, nous avons récupéré toutes les données de tous les lauréats portant les initiales GS. Cela n'est pas nécessaire si nous voulons uniquement leurs noms complets !
+Utilisez la projection et ajustez la requête pour sélectionner uniquement les champs "firstname"et "surname".
+3) Désormais, les documents que vous avez récupérés ne contiennent que les informations pertinentes !
+Parcourez les documents et, pour chaque document, concaténez les champs prénom et nom avec un espace entre les deux pour obtenir les noms complets.
+
+### Exercice 3 : Faire notre part de validation des données
+Dans notre collection Nobel prizes, chaque document comporte un ensemble de sous-documents de lauréat "laureates", chacun contenant des informations telles que la part du prix d'un lauréat :
+
+{'_id': ObjectId('5bc56145f35b634065ba1997'),
+ 'category': 'chemistry',
+ 'laureates': [{'firstname': 'Frances H.',
+   'id': '963',
+   'motivation': '"for the directed evolution of enzymes"',
+   'share': '2',
+   'surname': 'Arnold'},
+  {'firstname': 'George P.',
+   'id': '964',
+   'motivation': '"for the phage display of peptides and antibodies"',
+   'share': '4',
+   'surname': 'Smith'},
+ {...
+
+
+Chaque "laureates.share"valeur semble être l'inverse de la part fractionnaire d'un lauréat de ce prix, codée sous forme de chaîne. Par exemple, un lauréat "share"de "4"signifie que ce lauréat a reçu un
+
+part du prix. Vérifions que pour chaque prix, toutes les parts de tous les lauréats totalisent 1 !
+
+Notez les guillemets autour des valeurs dans le "share"champ : ces valeurs sont en fait données sous forme de chaînes ! Vous devrez ensuite les convertir en nombres avant de trouver les réciproques et d'additionner les actions.
+
+Instructions
+1) Enregistrez une liste de prix (prizes), en projetant uniquement les "laureates.share"valeurs de chaque prix.
+2) Pour chaque prix, calculez la part totale comme suit :
+    a) Initialisez la variable total_share à 0.
+    b) Parcourez les lauréats de chaque prix, en convertissant le "share"champ du "laureate"à floatet en ajoutant son inverse (c'est-à-dire 1 divisé par lui) à total_share.

@@ -1,0 +1,48 @@
+Exercice 1 : Quel genre de chose ?
+Ce bloc imprime les cinq premières projections d'une requête triée. Quel argument de « tri » remplit le vide ?
+
+docs = list(db.laureates.find(
+    {"born": {"$gte": "1900"}, "prizes.year": {"$gte": "1954"}},
+    {"born": 1, "prizes.year": 1, "_id": 0},
+    sort=____))
+for doc in docs[:5]:
+    print(doc)
+
+### Exercice 2 : Trier ensemble : MongoDB + Python
+Dans cet exercice, vous explorerez les prix de la catégorie physique. Vous utiliserez Python pour trier les lauréats d'un prix par nom de famille, puis MongoDB pour trier les prix par année :
+
+    1901: Röntgen
+    1902: Lorentz and Zeeman
+    1903: Becquerel and Curie and Curie, née Sklodowska
+Vous commencerez par écrire une fonction qui prend un document de prix comme argument, extrait tous les lauréats de ce document, les classe par ordre alphabétique et renvoie une chaîne contenant les noms de famille séparés par " and ".
+
+La base de données Nobel est à nouveau à votre disposition sous forme de fichier db. Nous avons également préchargé un exemple de document sample_prizeafin que vous puissiez tester votre fonction d'extraction de lauréats.
+
+(N'oubliez pas que vous pouvez toujours taper help(function_name)dans la console pour avoir un rappel sur les fonctions que vous connaissez peut-être moins, par exemplehelp(sorted) !)
+
+Consignes 1
+Complétez la définition de all_laureates(prize). Dans le corps de la fonction :
+
+Triez la liste "laureates" des documents prize selon la clé "surname".
+Pour chacun des lauréats de la liste triée, extrayez le champ "surname".
+Le code permettant de joindre les noms de famille en une seule chaîne est déjà écrit pour vous.
+Jetez un œil à la console pour vous assurer que le résultat ressemble à ce à quoi vous vous attendez !
+
+Consignes 2
+Retrouvez les documents des prix de la catégorie physique, triez-les par ordre chronologique (par "year", croissant) et récupérez uniquement les champs "year", "laureates.firstname", et ."laureates.surname"
+Consignes 3
+Maintenant que vous disposez des prix et de la fonction pour extraire les lauréats d'un prix, imprimez l'année et les noms des lauréats (utilisez votre all_laureates()fonction) pour chaque document de prix.
+
+
+### Exercice 3 : Années de transition
+Le prix d'économie n'a été ajouté qu'en 1969. Il y a également eu de nombreuses années pendant lesquelles aucun prix dans une ou plusieurs des catégories originales n'a été décerné.
+
+Dans cet exercice, vous utiliserez le tri selon plusieurs champs pour voir quelles catégories manquent et quelles années.
+
+Pour l'instant, vous allez simplement imprimer la liste de tous les documents, mais dans le chapitre suivant, vous apprendrez comment utiliser MongoDB pour regrouper et agréger les données afin de présenter ces informations dans un format plus pratique.
+
+Instructions
+
+Retrouvez les catégories de prix originales établies en 1901 en examinant les distinctvaleurs du "category"domaine des prix de l'année 1901.
+Récupérez UNIQUEMENT l'année et la catégorie de tous les documents (sans le "_id" champ) .
+Trier par "year"ordre décroissant , puis par "category"ordre croissant .
