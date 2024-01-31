@@ -1,0 +1,17 @@
+/*****************************************************/
+/* AJIRITI SERVICES - Formation Hadoop Udemy - 2020 **/
+/*****************************************************/
+
+// Exportation des donneés de la table departement de la base naissances de MySQL
+// Importation de ces données dans le système HDFS
+// Utilisation du compte maria_dev
+// Saisissez le mot de passe de maria_dev lorsqu'il est demandé 
+sqoop import --connect jdbc:mysql://localhost/naissances --driver com.mysql.jdbc.Driver --table departement -m 1 -username maria_dev -P
+
+// Exportation des donneés de la table departement de la base naissances de MySQL
+// Importation de ces données dans la table departement de Hive
+// Utilisation du compte maria_dev
+// Saisissez le mot de passe de maria_dev lorsqu'il est demandé 
+sudo -u hive sqoop import --connect jdbc:mysql://localhost/naissances --driver com.mysql.jdbc.Driver --table departement -m 1 --username maria_dev -P  --hive-import --create-hive-table
+
+ 

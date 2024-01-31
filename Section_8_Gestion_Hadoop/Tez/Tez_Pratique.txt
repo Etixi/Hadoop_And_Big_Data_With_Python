@@ -1,0 +1,17 @@
+Chargement des données 
+data = LOAD 'nat2018.csv' USING PigStorage(';') AS (sexe:int, prenom:chararray, annee:chararray, nombre:int);
+
+Eliminer les _PRENOMS_RARES
+datapre = FILTER data by prenom != '_PRENOMS_RARES';
+
+Grouper  les données par prenom
+prenom_groupe = GROUP datapre BY prenom;
+
+Calcul des sommes
+prenom_som = FOREACH prenom_groupe GENERATE group AS prenom, SUM(datapre.nombre) as Total;
+
+Trier les données
+prenom_trie = ORDER  prenom_som BY Total DESC; 
+
+Afficher le résultat
+dump prenom_trie;
